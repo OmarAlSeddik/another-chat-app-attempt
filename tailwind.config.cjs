@@ -6,6 +6,13 @@ module.exports = {
       fontFamily: {
         outfit: "'Outfit', sans-serif;",
       },
+      fontSize: {
+        h1: ["2.5rem", "3.125rem"],
+        h2: ["1.5rem", "1.875rem"],
+        h3: ["1.25rem", "1.5625rem"],
+        h4: ["1rem", "1.25rem"],
+        text: ["0.875rem", "1.125rem"],
+      },
       colors: {
         blueDark: "#118c87",
         blue: "#31c3bd",
@@ -22,6 +29,7 @@ module.exports = {
         silverTransparent: "#a8bfc90d",
       },
       boxShadow: {
+        noShadow: "none !important",
         blueShadow: "inset 0px -0.5rem 0px #118c87",
         yellowShadow: "inset 0px -0.5rem 0px #cc8b13",
         navyShadow: "inset 0px -0.5rem 0px #10212a",
