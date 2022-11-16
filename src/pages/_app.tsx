@@ -20,7 +20,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <div className="flex">
       <Navbar />
-      <div className="flex flex-col">
+      <div className="flex grow flex-col">
         <Header />
         <Component {...pageProps} />
         <Footer />
