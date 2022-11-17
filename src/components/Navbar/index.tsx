@@ -4,7 +4,7 @@ import NavHead from "./NavHead";
 
 const Navbar = () => {
   return (
-    <nav className="flex h-screen w-[15rem] flex-col bg-navy px-4">
+    <nav className="flex h-screen w-[15rem] flex-col bg-primary3">
       <NavHead />
       <NavBody />
       <NavFooter />

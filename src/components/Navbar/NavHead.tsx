@@ -1,5 +1,5 @@
 const NavHead = () => {
-  return <div className="h-16 rounded-xl p-4 shadow-lg">Nav Head</div>;
+  return <div className="h-12 px-4 py-3 shadow">Nav Head</div>;
 };
 
 export default NavHead;

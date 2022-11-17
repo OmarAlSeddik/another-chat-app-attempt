@@ -1,5 +1,5 @@
 const AsideFooter = () => {
-  return <div className="h-16">Aside Footer</div>;
+  return <div className="h-12 bg-primary2 px-4 py-3">Aside Footer</div>;
 };
 
 export default AsideFooter;

@@ -11,7 +11,7 @@ export default function Document() {
         rel="stylesheet"
       />
       <link rel="icon" href="/favicon.ico" />
-      <body className="min-h-screen bg-silverLight font-outfit text-greyDark">
+      <body className="text-silver min-h-screen bg-primary4 font-outfit text-text2">
         <Main />
         <NextScript />
       </body>

@@ -1,5 +1,5 @@
 const AsideHead = () => {
-  return <div className="h-16 shadow-lg">Aside Head</div>;
+  return <div className="h-12 px-4 py-3 shadow">Aside Head</div>;
 };
 
 export default AsideHead;
