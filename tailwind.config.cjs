@@ -29,7 +29,8 @@ module.exports = {
       },
       boxShadow: {
         noShadow: "none !important",
-        buttonShadow: "inset 0px -0.5rem 0px #9e9e9e",
+        buttonShadow1: "inset 0px -0.5rem 0px #9e9e9e",
+        buttonShadow2: "inset 0px -0.25rem 0px #9e9e9e",
       },
     },
   },

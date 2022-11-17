@@ -1,18 +1,39 @@
+import Room from "./Room";
+
 const NavBody = () => {
+  const rooms = [
+    { displayName: "Room", photoUrl: "Room" },
+    { displayName: "Room", photoUrl: "Room" },
+    { displayName: "Room", photoUrl: "Room" },
+    { displayName: "Room", photoUrl: "Room" },
+    { displayName: "Room", photoUrl: "Room" },
+    { displayName: "Room", photoUrl: "Room" },
+    { displayName: "Room", photoUrl: "Room" },
+    { displayName: "Room", photoUrl: "Room" },
+    { displayName: "Room", photoUrl: "Room" },
+    { displayName: "Room", photoUrl: "Room" },
+    { displayName: "Room", photoUrl: "Room" },
+    { displayName: "Room", photoUrl: "Room" },
+    { displayName: "Room", photoUrl: "Room" },
+    { displayName: "Room", photoUrl: "Room" },
+    { displayName: "Room", photoUrl: "Room" },
+    { displayName: "Room", photoUrl: "Room" },
+    { displayName: "Room", photoUrl: "Room" },
+    { displayName: "Room", photoUrl: "Room" },
+    { displayName: "Room", photoUrl: "Room" },
+    { displayName: "Room", photoUrl: "Room" },
+    { displayName: "Room", photoUrl: "Room" },
+    { displayName: "Room", photoUrl: "Room" },
+    { displayName: "Room", photoUrl: "Room" },
+    { displayName: "Room", photoUrl: "Room" },
+    { displayName: "Room", photoUrl: "Room" },
+  ];
+
   return (
-    <div className="flex grow flex-col gap-2 p-2">
-      <div className="flex h-12 cursor-pointer gap-4 rounded p-2 hover:bg-primary6">
-        <div className="w-8 rounded-[50%] bg-primary1" />
-        <div className="flex items-center">
-          <span>User Display Name</span>
-        </div>
-      </div>
-      <div className="flex h-12 cursor-pointer gap-4 rounded p-2 hover:bg-primary6">
-        <div className="w-8 rounded-[50%] bg-primary1" />
-        <div className="flex items-center">
-          <span>User Display Name</span>
-        </div>
-      </div>
+    <div className="scrollbar flex grow flex-col gap-2 overflow-y-scroll p-2">
+      {rooms.map((room, index) => (
+        <Room displayName={room.displayName} photoUrl="Some Url" key={index} />
+      ))}
     </div>
   );
 };
