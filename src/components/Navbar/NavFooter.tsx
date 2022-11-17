@@ -1,5 +1,12 @@
 const NavFooter = () => {
-  return <div className="h-12 bg-primary2 px-4 py-3">Nav Footer</div>;
+  return (
+    <div className="flex h-12 cursor-pointer gap-4 bg-primary2 p-2 hover:bg-primary6">
+      <div className="w-8 rounded-[50%] bg-primary1" />
+      <div className="flex items-center">
+        <span>User Display Name</span>
+      </div>
+    </div>
+  );
 };
 
 export default NavFooter;
