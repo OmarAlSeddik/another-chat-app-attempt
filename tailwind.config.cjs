@@ -7,11 +7,8 @@ module.exports = {
         outfit: "'Outfit', sans-serif;",
       },
       fontSize: {
-        h1: ["2.5rem", "3.125rem"],
-        h2: ["1.5rem", "1.875rem"],
-        h3: ["1.25rem", "1.5625rem"],
-        h4: ["1rem", "1.25rem"],
-        text: ["0.875rem", "1.125rem"],
+        medium: ["1rem", "1.375rem"],
+        small: ["0.75rem", "1.375rem"],
       },
       colors: {
         primary1: "#202225",
@@ -22,7 +19,7 @@ module.exports = {
         primary6: "#42464D",
         text1: "#96989d",
         text2: "#dcddde",
-        text3: "ffffff",
+        text3: "#ffffff",
         button1: "#9e9e9e",
         button2: "#e0e0e0",
         button3: "#f5f5f5",

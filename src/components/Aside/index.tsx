@@ -1,15 +1,5 @@
-import AsideBody from "./AsideBody";
-import AsideFooter from "./AsideFooter";
-import AsideHead from "./AsideHead";
-
 const Aside = () => {
-  return (
-    <nav className="flex h-screen w-[15rem] flex-col bg-primary3">
-      <AsideHead />
-      <AsideBody />
-      <AsideFooter />
-    </nav>
-  );
+  return <div className="w-[15rem] flex-shrink-0 bg-primary3"></div>;
 };
 
 export default Aside;

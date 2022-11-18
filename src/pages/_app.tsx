@@ -4,8 +4,6 @@ import { type AppType } from "next/dist/shared/lib/utils";
 import { useRouter } from "next/router";
 import Aside from "../components/Aside";
 import Auth from "../components/Auth";
-import Footer from "../components/Footer";
-import Header from "../components/Header";
 import Navbar from "../components/Navbar";
 import "../styles/globals.css";
 
@@ -18,13 +16,9 @@ const MyApp: AppType = ({ Component, pageProps }) => {
   if (url === "/auth") return <Auth />;
 
   return (
-    <div className="flex">
+    <div className="flex h-screen w-screen">
       <Navbar />
-      <div className="flex grow flex-col">
-        <Header />
-        <Component {...pageProps} />
-        <Footer />
-      </div>
+      <Component {...pageProps} />
       <Aside />
     </div>
   );

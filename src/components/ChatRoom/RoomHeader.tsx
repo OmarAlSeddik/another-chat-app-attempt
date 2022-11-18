@@ -1,9 +1,9 @@
 import { faBars, faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-const Header = () => {
+const RoomHeader = () => {
   return (
-    <div className="flex h-12 items-center justify-between px-4">
+    <div className="flex h-12 flex-shrink-0 items-center justify-between px-4">
       <button className="flex items-center justify-center hover:scale-110">
         <FontAwesomeIcon icon={faBars} className="fa-2x" />
       </button>
@@ -15,4 +15,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default RoomHeader;
