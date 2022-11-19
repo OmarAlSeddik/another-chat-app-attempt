@@ -7,6 +7,7 @@ module.exports = {
         outfit: "'Outfit', sans-serif;",
       },
       fontSize: {
+        large: ["1.25rem", "1.5rem"],
         medium: ["1rem", "1.375rem"],
         small: ["0.75rem", "1.375rem"],
       },
