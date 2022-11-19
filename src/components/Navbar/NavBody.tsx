@@ -32,7 +32,11 @@ const NavBody = () => {
   return (
     <div className="scrollbar flex grow flex-col gap-2 overflow-y-scroll p-2">
       {rooms.map((room, index) => (
-        <Room displayName={room.displayName} photoUrl="Some Url" key={index} />
+        <Room
+          displayName={room.displayName}
+          photoUrl={room.photoUrl}
+          key={index}
+        />
       ))}
     </div>
   );
