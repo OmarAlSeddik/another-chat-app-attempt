@@ -43,7 +43,7 @@ const Aside = () => {
       <div className="p-4">
         <span className="text-text1">About</span>
         <br />
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit.Lorem ipsum
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum
         dolor sit amet, consectetur adipisicing elit.
       </div>
       <hr className="w-full border-primary1" />

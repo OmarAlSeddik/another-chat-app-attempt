@@ -1,9 +1,9 @@
 import { type NextPage } from "next";
-import ChatRoom from "../components/ChatRoom";
+import Home from "../components/Home";
 
 const HomePage: NextPage = () => {
-  // return <Home />;
-  return <ChatRoom />;
+  return <Home />;
+  // return <ChatRoom />;
 };
 
 export default HomePage;
