@@ -47,11 +47,11 @@ const Aside = () => {
         dolor sit amet, consectetur adipisicing elit.
       </div>
       <hr className="w-full border-primary1" />
-      <span className="cursor-pointer p-4 text-[#a02d2f] hover:text-[#d83c3e]">
+      <span className="cursor-pointer p-[0.8125rem] text-[#a02d2f] hover:text-[#d83c3e]">
         Leave Group
       </span>
       <hr className="w-full border-primary1" />
-      <span className="p-4">Group Members</span>
+      <span className="p-[0.8125rem]">Group Members</span>
       <hr className="w-full border-primary1" />
       <SearchInput />
       <div className="scrollbar flex w-full grow flex-col gap-2 overflow-y-scroll p-2">
