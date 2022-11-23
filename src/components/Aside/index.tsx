@@ -34,7 +34,7 @@ const Aside = () => {
     <div className="flex w-[15rem] flex-shrink-0 flex-col items-center border-l border-primary1 bg-primary3">
       <div className="flex flex-col items-center py-4">
         <div className="mb-4 h-[8rem] w-[8rem] rounded-[50%] bg-primary1" />
-        <span className="">Group Name</span>
+        <span className="select-text text-large">Group Name</span>
         <span className="cursor-pointer text-text1 hover:text-text3">
           Group ID
         </span>
@@ -43,8 +43,10 @@ const Aside = () => {
       <div className="p-4">
         <span className="text-text1">About</span>
         <br />
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum
-        dolor sit amet, consectetur adipisicing elit.
+        <span className="select-text">
+          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum
+          dolor sit amet, consectetur adipisicing elit.
+        </span>
       </div>
       <hr className="w-full border-primary1" />
       <span className="cursor-pointer p-[0.8125rem] text-[#a02d2f] hover:text-[#d83c3e]">

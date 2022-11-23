@@ -9,7 +9,7 @@ const Message = () => {
           </span>
           <span className="text-small text-text1">Today at 12:15 am</span>
         </div>
-        <span>
+        <span className="select-text">
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Accusamus
           sapiente dignissimos iure pariatur velit consequatur earum temporibus
           magni commodi beatae impedit autem explicabo officia blanditiis quia,
