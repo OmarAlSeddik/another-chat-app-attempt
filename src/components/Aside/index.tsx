@@ -25,7 +25,8 @@ const Aside = () => {
     { displayName: "User", photoUrl: "U" },
   ];
 
-  const type = "group";
+  const type = "settings";
+  const photoUrl = "N";
   const id = "123456789";
   const name = "Name";
   const about =
@@ -33,9 +34,9 @@ const Aside = () => {
 
   return (
     <div className="flex w-[15rem] flex-shrink-0 flex-col items-center border-l border-primary1 bg-primary3">
-      <Details name={name} id={id} />
+      <Details name={name} id={id} photoUrl={photoUrl} type={type} />
       <hr className="w-full border-primary1" />
-      <About about={about} />
+      <About about={about} type={type} />
       <hr className="w-full border-primary1" />
       <ButtonContainer type={type} />
       <hr className="w-full border-primary1" />
