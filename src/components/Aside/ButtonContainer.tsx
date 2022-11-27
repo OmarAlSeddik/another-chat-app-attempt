@@ -16,7 +16,7 @@ const ButtonContainer = ({ type, photoUrl }: PropsType) => {
       <>
         <div
           className="flex h-12 w-full shrink-0 cursor-pointer items-center
-        justify-center gap-2 bg-primary2 p-2 hover:bg-primary6"
+        justify-center gap-2 bg-primary2 p-2 transition-all hover:bg-primary6"
           onClick={() => setIsOpen(true)}
         >
           <FontAwesomeIcon icon={faGear} className="fa-lg" />

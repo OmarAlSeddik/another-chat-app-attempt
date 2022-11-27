@@ -33,7 +33,7 @@ const Aside = () => {
     "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.";
 
   return (
-    <div className="flex w-[15rem] flex-shrink-0 flex-col items-center border-l border-primary1 bg-primary3">
+    <div className="scrollbar flex w-[15rem] flex-shrink-0 flex-col items-center overflow-y-scroll border-l border-primary1 bg-primary3">
       <Details name={name} id={id} photoUrl={photoUrl} />
       <hr className="w-full border-primary1" />
       <About about={about} />
