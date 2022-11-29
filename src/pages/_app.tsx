@@ -5,6 +5,7 @@ import { useRouter } from "next/router";
 import Aside from "../components/Aside";
 import Auth from "../components/Auth";
 import Navbar from "../components/Navbar";
+import { AppContextProvider } from "../context/AppContext";
 import "../styles/globals.css";
 
 config.autoAddCss = false;
@@ -16,11 +17,13 @@ const MyApp: AppType = ({ Component, pageProps }) => {
   if (url === "/auth") return <Auth />;
 
   return (
-    <div className="flex h-screen w-screen">
-      <Navbar />
-      <Component {...pageProps} />
-      <Aside />
-    </div>
+    <AppContextProvider>
+      <div className="flex h-screen w-screen">
+        <Navbar />
+        <Component {...pageProps} />
+        <Aside />
+      </div>
+    </AppContextProvider>
   );
 };
 
