@@ -11,9 +11,8 @@ const About = ({ about }: PropsType) => {
       <textarea
         disabled
         className="h-[11rem] w-full select-text resize-none rounded bg-primary3"
-      >
-        {about}
-      </textarea>
+        value={about}
+      />
     </div>
   );
 };

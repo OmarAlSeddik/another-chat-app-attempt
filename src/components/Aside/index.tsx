@@ -1,3 +1,4 @@
+import { useAppContext } from "../../context/AppContext";
 import About from "./About";
 import ButtonContainer from "./ButtonContainer";
 import Details from "./Details";
@@ -25,15 +26,26 @@ const Aside = () => {
     { displayName: "User", photoUrl: "U" },
   ];
 
-  const type = "settings";
+  const type = "group";
   const photoUrl = "N";
-  const id = "123456789";
+  const id = "id0123456789";
   const name = "Name";
   const about =
     "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.";
 
+  const { asideIsExpanded, mobileAsideIsExpanded } = useAppContext();
+
+  const dynamicStyle = asideIsExpanded
+    ? "md:w-[15rem]"
+    : "md:w-[0] overflow-hidden";
+  const mobileDynamicStyle = mobileAsideIsExpanded
+    ? "w-[15rem]"
+    : "w-[0] overflow-hidden";
+
   return (
-    <div className="scrollbar flex w-[15rem] flex-shrink-0 flex-col items-center overflow-y-scroll border-l border-primary1 bg-primary3">
+    <div
+      className={`scrollbar flex ${dynamicStyle} ${mobileDynamicStyle} h-screen flex-shrink-0 flex-col items-center overflow-y-scroll border-l border-primary1 bg-primary3 transition-all`}
+    >
       <Details name={name} id={id} photoUrl={photoUrl} />
       <hr className="w-full border-primary1" />
       <About about={about} />

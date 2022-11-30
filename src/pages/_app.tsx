@@ -6,6 +6,7 @@ import Aside from "../components/Aside";
 import Auth from "../components/Auth";
 import Navbar from "../components/Navbar";
 import { AppContextProvider } from "../context/AppContext";
+import useSwipe from "../hooks/useSwipe";
 import "../styles/globals.css";
 
 config.autoAddCss = false;
@@ -13,12 +14,18 @@ config.autoAddCss = false;
 const MyApp: AppType = ({ Component, pageProps }) => {
   const router = useRouter();
   const url = router.route;
+  const { onTouchStart, onTouchMove, onTouchEnd } = useSwipe();
 
   if (url === "/auth") return <Auth />;
 
   return (
     <AppContextProvider>
-      <div className="flex h-screen w-screen">
+      <div
+        className="min-w-screen flex min-h-screen"
+        onTouchStart={onTouchStart}
+        onTouchMove={onTouchMove}
+        onTouchEnd={onTouchEnd}
+      >
         <Navbar />
         <Component {...pageProps} />
         <Aside />

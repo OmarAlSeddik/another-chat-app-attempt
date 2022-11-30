@@ -4,7 +4,7 @@ import RoomHeader from "./RoomHeader";
 
 const ChatRoom = () => {
   return (
-    <div className="flex h-full flex-col">
+    <div className="flex h-screen w-screen flex-col overflow-x-auto">
       <RoomHeader />
       <hr className="border-primary1" />
       <ChatBox />
