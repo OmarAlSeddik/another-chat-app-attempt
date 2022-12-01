@@ -21,7 +21,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <AppContextProvider>
       <div
-        className="min-w-screen flex min-h-screen"
+        className="flex h-screen overflow-hidden"
         onTouchStart={onTouchStart}
         onTouchMove={onTouchMove}
         onTouchEnd={onTouchEnd}

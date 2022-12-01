@@ -36,10 +36,10 @@ const Aside = () => {
   const { asideIsExpanded, mobileAsideIsExpanded } = useAppContext();
 
   const dynamicStyle = asideIsExpanded
-    ? "md:w-[15rem]"
+    ? "md:w-[20rem]"
     : "md:w-[0] overflow-hidden";
   const mobileDynamicStyle = mobileAsideIsExpanded
-    ? "w-[15rem]"
+    ? "w-[20rem]"
     : "w-[0] overflow-hidden";
 
   return (

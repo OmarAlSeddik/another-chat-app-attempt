@@ -48,6 +48,7 @@ const NavBody = () => {
           displayName={room.displayName}
           photoUrl={room.photoUrl}
           key={index}
+          isActive={index === 0}
         />
       ))}
       <Modal isOpen={isOpen} setIsOpen={setIsOpen} />
