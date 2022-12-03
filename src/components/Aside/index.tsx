@@ -1,3 +1,4 @@
+import { useSwipeable } from "react-swipeable";
 import { useAppContext } from "../../context/AppContext";
 import About from "./About";
 import ButtonContainer from "./ButtonContainer";
@@ -26,6 +27,14 @@ const Aside = () => {
     { displayName: "User", photoUrl: "U" },
   ];
 
+  const { toggleAside } = useAppContext();
+
+  const handlers = useSwipeable({
+    onSwipedRight: () => {
+      if (toggleAside) toggleAside();
+    },
+  });
+
   const type = "group";
   const photoUrl = "N";
   const id = "id0123456789";
@@ -44,7 +53,9 @@ const Aside = () => {
 
   return (
     <div
-      className={`scrollbar flex ${dynamicStyle} ${mobileDynamicStyle} h-screen flex-shrink-0 flex-col items-center overflow-y-scroll border-l border-primary1 bg-primary3 transition-all`}
+      className={`scrollbar flex ${dynamicStyle} ${mobileDynamicStyle} h-screen flex-shrink-0 flex-col
+      items-center overflow-y-scroll border-l border-primary1 bg-primary3 transition-all`}
+      {...handlers}
     >
       <Details name={name} id={id} photoUrl={photoUrl} />
       <hr className="w-full border-primary1" />
