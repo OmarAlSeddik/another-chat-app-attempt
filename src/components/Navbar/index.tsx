@@ -24,7 +24,7 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`flex h-screen ${dynamicStyle} ${mobileDynamicStyle} flex-shrink-0 flex-col items-center
+      className={`flex ${dynamicStyle} ${mobileDynamicStyle} flex-shrink-0 flex-col items-center
       border-r border-primary1 bg-primary3 transition-all`}
       {...handlers}
     >

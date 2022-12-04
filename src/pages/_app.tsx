@@ -18,7 +18,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
 
   return (
     <AppContextProvider>
-      <div className="flex h-screen overflow-hidden">
+      <div className={`absolute inset-0 flex w-full overflow-hidden`}>
         <Navbar />
         <Component {...pageProps} />
         <Aside />

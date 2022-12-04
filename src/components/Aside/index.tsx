@@ -53,7 +53,7 @@ const Aside = () => {
 
   return (
     <div
-      className={`scrollbar flex ${dynamicStyle} ${mobileDynamicStyle} h-screen flex-shrink-0 flex-col
+      className={`scrollbar flex ${dynamicStyle} ${mobileDynamicStyle} flex-shrink-0 flex-col
       items-center overflow-y-scroll border-l border-primary1 bg-primary3 transition-all`}
       {...handlers}
     >

@@ -6,7 +6,10 @@ export default function Document() {
       <Head />
       <meta charSet="UTF-8" />
       <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <meta
+        name="viewport"
+        content="width=device-width, height=device-height, initial-scale=1"
+      />
       <link rel="preconnect" href="https://fonts.googleapis.com" />
       <link rel="preconnect" href="https://fonts.gstatic.com" />
       <link
@@ -14,7 +17,7 @@ export default function Document() {
         rel="stylesheet"
       />
       <link rel="icon" href="/favicon.ico" />
-      <body className="text-silver min-h-screen select-none bg-primary4 font-outfit text-medium text-text2">
+      <body className="text-silver select-none bg-primary4 font-outfit text-medium text-text2">
         <Main />
         <NextScript />
       </body>

@@ -14,10 +14,14 @@ const ChatRoom = () => {
 
   const handlers = useSwipeable({
     onSwipedRight: () => {
-      if (toggleNavBar) toggleNavBar();
+      if (toggleNavBar && toggleAside && !mobileAsideIsExpanded) {
+        toggleNavBar();
+      }
     },
     onSwipedLeft: () => {
-      if (toggleAside) toggleAside();
+      if (toggleNavBar && toggleAside && !mobileAsideIsExpanded) {
+        toggleAside();
+      }
     },
   });
 
@@ -36,17 +40,11 @@ const ChatRoom = () => {
 
   return (
     <div
-      className={`flex w-full shrink-0 flex-col transition-all ${
-        expandedMobile && "pointer-events-none"
-      } ${mobileAsideIsExpanded && "ml-[-20rem] md:ml-0"} md:shrink`}
+      className={`flex w-full shrink-0 flex-col transition-all
+      ${expandedMobile && "pointer-events-none"}
+      ${mobileAsideIsExpanded && "ml-[-20rem] md:ml-0"} md:shrink`}
       {...handlers}
     >
-      {expandedMobile && (
-        <div
-          className="pointer-events-auto absolute z-50 h-full w-full bg-[rgba(0,0,0,0.5)]"
-          onClick={handleClick}
-        />
-      )}
       <RoomHeader />
       <hr className="border-primary1" />
       <ChatBox />
