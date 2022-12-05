@@ -10,6 +10,7 @@ const ChatRoom = () => {
     mobileAsideIsExpanded,
     toggleNavBar,
     toggleAside,
+    isMobile,
   } = useAppContext();
 
   const handlers = useSwipeable({
@@ -24,16 +25,6 @@ const ChatRoom = () => {
       }
     },
   });
-
-  const isMobile =
-    typeof window !== "undefined" ? window.innerWidth < 768 : false;
-
-  const handleClick = () => {
-    if (isMobile && toggleAside && toggleNavBar) {
-      if (mobileNavBarIsExpanded) toggleNavBar();
-      if (mobileAsideIsExpanded) toggleAside();
-    }
-  };
 
   const expandedMobile =
     (mobileNavBarIsExpanded || mobileAsideIsExpanded) && isMobile;

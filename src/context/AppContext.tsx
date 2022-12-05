@@ -7,6 +7,7 @@ type ContextType = {
   mobileAsideIsExpanded: boolean;
   toggleNavBar?: () => void;
   toggleAside?: () => void;
+  isMobile: boolean;
 };
 
 const defaultState = {
@@ -14,6 +15,7 @@ const defaultState = {
   asideIsExpanded: true,
   mobileNavBarIsExpanded: false,
   mobileAsideIsExpanded: false,
+  isMobile: false,
 };
 
 const AppContext = createContext<ContextType>(defaultState);
@@ -40,6 +42,9 @@ export const AppContextProvider = ({ children }: PropsType) => {
     setMobileNavBarIsExpanded(false);
   };
 
+  const isMobile =
+    typeof window !== "undefined" ? window.innerWidth < 768 : false;
+
   return (
     <AppContext.Provider
       value={{
@@ -49,6 +54,7 @@ export const AppContextProvider = ({ children }: PropsType) => {
         mobileAsideIsExpanded,
         toggleNavBar,
         toggleAside,
+        isMobile,
       }}
     >
       {children}
