@@ -8,11 +8,9 @@ const About = ({ about }: PropsType) => {
       <div className="flex items-center">
         <span className="text-text1">About</span>
       </div>
-      <textarea
-        disabled
-        className="h-[11rem] w-full select-text resize-none rounded bg-primary3"
-        value={about}
-      />
+      <div className="h-[5.5rem] w-full select-text resize-none rounded bg-primary3">
+        {about}
+      </div>
     </div>
   );
 };

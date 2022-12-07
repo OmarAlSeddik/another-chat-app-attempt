@@ -35,7 +35,7 @@ const Aside = () => {
     },
   });
 
-  const type = "group";
+  const type = "settings";
   const photoUrl = "N";
   const id = "id0123456789";
   const name = "Name";

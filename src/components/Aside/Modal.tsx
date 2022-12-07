@@ -5,7 +5,9 @@ import {
   faXmark,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { signOut } from "firebase/auth";
 import type { SetStateAction } from "react";
+import { auth } from "../../../firebase";
 
 type PropsType = {
   isOpen: boolean;
@@ -14,6 +16,8 @@ type PropsType = {
 };
 
 const Modal = ({ isOpen, setIsOpen, photoUrl }: PropsType) => {
+  const logOut = () => signOut(auth);
+
   if (!isOpen) return null;
 
   return (
@@ -70,7 +74,10 @@ const Modal = ({ isOpen, setIsOpen, photoUrl }: PropsType) => {
               </div>
             </div>
           </div>
-          <button className="rounded bg-red-700 py-1 px-4 transition-all hover:bg-red-500">
+          <button
+            className="rounded bg-red-700 py-1 px-4 transition-all hover:bg-red-500"
+            onClick={logOut}
+          >
             Log Out
           </button>
         </div>
