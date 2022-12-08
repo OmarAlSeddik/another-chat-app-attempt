@@ -5,7 +5,7 @@ import { useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase";
 import Auth from "../components/Auth";
-import Loading from "../components/Loading";
+import Loading from "../components/Shared/Loading";
 
 const AuthPage: NextPage = () => {
   const router = useRouter();

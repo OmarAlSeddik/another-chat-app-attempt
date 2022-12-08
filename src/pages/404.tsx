@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase";
-import Loading from "../components/Loading";
+import Loading from "../components/Shared/Loading";
 
 const NotFoundPage: NextPage = () => {
   const router = useRouter();

@@ -15,7 +15,7 @@ type PropsType = {
   photoUrl: string;
 };
 
-const Modal = ({ isOpen, setIsOpen, photoUrl }: PropsType) => {
+const SettingsModal = ({ isOpen, setIsOpen, photoUrl }: PropsType) => {
   const logOut = () => signOut(auth);
 
   if (!isOpen) return null;
@@ -27,12 +27,11 @@ const Modal = ({ isOpen, setIsOpen, photoUrl }: PropsType) => {
         onClick={() => setIsOpen(false)}
       />
       <div className="absolute top-1/2 left-1/2 z-50 translate-x-[-50%] translate-y-[-50%] rounded bg-primary2 p-4">
-        <button className="absolute right-4 rounded bg-red-700 px-2 transition-all hover:bg-red-500">
-          <FontAwesomeIcon
-            icon={faXmark}
-            className="text-[1.5rem]"
-            onClick={() => setIsOpen(false)}
-          />
+        <button
+          className="absolute right-4 rounded bg-red-700 px-2 py-0.5 transition-all hover:bg-red-500"
+          onClick={() => setIsOpen(false)}
+        >
+          <FontAwesomeIcon icon={faXmark} className="text-[1.5rem]" />
         </button>
         <div className="flex flex-col items-center gap-4">
           <div className="group flex h-[8rem] w-[8rem] cursor-pointer items-center justify-center rounded-[50%] bg-primary1 transition-all hover:opacity-50">
@@ -86,4 +85,4 @@ const Modal = ({ isOpen, setIsOpen, photoUrl }: PropsType) => {
   );
 };
 
-export default Modal;
+export default SettingsModal;

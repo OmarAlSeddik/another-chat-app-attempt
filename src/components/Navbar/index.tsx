@@ -2,7 +2,7 @@ import { useSwipeable } from "react-swipeable";
 import { useAppContext } from "../../context/AppContext";
 import NavBody from "./NavBody";
 import NavFooter from "./NavFooter";
-import NavHead from "./NavHead";
+import NavHeader from "./NavHeader";
 import SearchInput from "./SearchInput";
 
 const Navbar = () => {
@@ -28,7 +28,7 @@ const Navbar = () => {
       border-r border-primary1 bg-primary3 transition-all`}
       {...handlers}
     >
-      <NavHead />
+      <NavHeader />
       <hr className="w-full border-primary1" />
       <SearchInput />
       <hr className="w-full border-primary1" />

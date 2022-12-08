@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase";
 import ChatRoom from "../components/ChatRoom";
-import Loading from "../components/Loading";
+import Loading from "../components/Shared/Loading";
 
 const HomePage: NextPage = () => {
   const router = useRouter();
