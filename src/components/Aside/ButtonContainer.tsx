@@ -1,15 +1,14 @@
 import { faGear } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useAppContext } from "../../../context/AppContext";
-import SettingsModal from "../../Shared/SettingsModal";
+import { useAppContext } from "../../context/AppContext";
 
 type PropsType = {
   type: string;
   photoUrl: string;
 };
 
-const ButtonContainer = ({ type, photoUrl }: PropsType) => {
-  const { toggleSettingsModal, settingsModalIsOpen } = useAppContext();
+const ButtonContainer = ({ type }: PropsType) => {
+  const { toggleSettingsModal } = useAppContext();
   const toggleModal = () => toggleSettingsModal && toggleSettingsModal();
 
   if (type === "settings")
@@ -23,12 +22,6 @@ const ButtonContainer = ({ type, photoUrl }: PropsType) => {
           <FontAwesomeIcon icon={faGear} className="fa-lg" />
           <span>Settings</span>
         </div>
-        {/* Delete The Modal! */}
-        <SettingsModal
-          isOpen={settingsModalIsOpen}
-          setIsOpen={toggleModal}
-          photoUrl={photoUrl}
-        />
       </>
     );
 

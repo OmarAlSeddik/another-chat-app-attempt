@@ -6,30 +6,25 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { signOut } from "firebase/auth";
-import type { SetStateAction } from "react";
 import { auth } from "../../../firebase";
+import { useAppContext } from "../../context/AppContext";
 
-type PropsType = {
-  isOpen: boolean;
-  setIsOpen: React.Dispatch<SetStateAction<boolean>>;
-  photoUrl: string;
-};
-
-const SettingsModal = ({ isOpen, setIsOpen, photoUrl }: PropsType) => {
+const SettingsModal = () => {
+  const { settingsModalIsOpen, toggleSettingsModal } = useAppContext();
   const logOut = () => signOut(auth);
 
-  if (!isOpen) return null;
+  if (!settingsModalIsOpen) return null;
 
   return (
     <>
       <div
         className="fixed top-0 left-0 right-0 bottom-0 z-50 bg-[rgba(0,0,0,0.5)]"
-        onClick={() => setIsOpen(false)}
+        onClick={toggleSettingsModal}
       />
       <div className="absolute top-1/2 left-1/2 z-50 translate-x-[-50%] translate-y-[-50%] rounded bg-primary2 p-4">
         <button
           className="absolute right-4 rounded bg-red-700 px-2 py-0.5 transition-all hover:bg-red-500"
-          onClick={() => setIsOpen(false)}
+          onClick={toggleSettingsModal}
         >
           <FontAwesomeIcon icon={faXmark} className="text-[1.5rem]" />
         </button>

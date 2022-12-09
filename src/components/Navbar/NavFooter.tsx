@@ -1,11 +1,9 @@
 import { faGear } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useAppContext } from "../../context/AppContext";
-import SettingsModal from "../Shared/SettingsModal";
 
 const NavFooter = () => {
-  const { toggleAside, toggleSettingsModal, settingsModalIsOpen } =
-    useAppContext();
+  const { toggleAside, toggleSettingsModal } = useAppContext();
   const toggleModal = () => toggleSettingsModal && toggleSettingsModal();
 
   const handleClick = () => {
@@ -33,12 +31,6 @@ const NavFooter = () => {
           </button>
         </div>
       </div>
-      {/* Delete The Modal! */}
-      <SettingsModal
-        isOpen={settingsModalIsOpen}
-        setIsOpen={toggleModal}
-        photoUrl={"placeholder"}
-      />
     </>
   );
 };
