@@ -15,7 +15,7 @@ const Details = ({ name, id, photoUrl }: PropsType) => {
     <div className="relative flex w-full flex-col items-center py-2">
       <button
         className="absolute right-2 rounded bg-red-700 px-2 py-0.5 transition-all hover:bg-red-500"
-        onClick={() => toggleAside && toggleAside()}
+        onClick={() => toggleAside && toggleAside("personal")}
       >
         <FontAwesomeIcon icon={faXmark} className="text-[1.5rem]" />
       </button>

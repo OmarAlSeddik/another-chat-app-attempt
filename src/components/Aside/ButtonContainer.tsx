@@ -3,15 +3,15 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useAppContext } from "../../context/AppContext";
 
 type PropsType = {
-  type: string;
+  asideDisplay: string;
   photoUrl: string;
 };
 
-const ButtonContainer = ({ type }: PropsType) => {
+const ButtonContainer = ({ asideDisplay }: PropsType) => {
   const { toggleSettingsModal } = useAppContext();
   const toggleModal = () => toggleSettingsModal && toggleSettingsModal();
 
-  if (type === "settings")
+  if (asideDisplay === "personal")
     return (
       <>
         <div
@@ -25,7 +25,7 @@ const ButtonContainer = ({ type }: PropsType) => {
       </>
     );
 
-  const text = type === "group" ? "Leave Group" : "Block User";
+  const text = asideDisplay === "group" ? "Leave Group" : "Block User";
 
   return (
     <span className="cursor-pointer p-[0.8125rem] text-[#a02d2f] hover:text-[#d83c3e]">

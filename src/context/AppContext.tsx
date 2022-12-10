@@ -6,10 +6,13 @@ type ContextType = {
   mobileNavBarIsExpanded: boolean;
   mobileAsideIsExpanded: boolean;
   toggleNavBar?: () => void;
-  toggleAside?: () => void;
+  toggleAside?: (display: string) => void;
+  openAside?: (display: string) => void;
+  closeAside?: () => void;
   isMobile: boolean;
   settingsModalIsOpen: boolean;
   toggleSettingsModal?: () => void;
+  asideDisplay: string;
 };
 
 const defaultState = {
@@ -19,6 +22,7 @@ const defaultState = {
   mobileAsideIsExpanded: false,
   isMobile: false,
   settingsModalIsOpen: false,
+  asideDisplay: "group",
 };
 
 const AppContext = createContext<ContextType>(defaultState);
@@ -33,6 +37,11 @@ export const AppContextProvider = ({ children }: PropsType) => {
   const [mobileNavBarIsExpanded, setMobileNavBarIsExpanded] = useState(false);
   const [mobileAsideIsExpanded, setMobileAsideIsExpanded] = useState(false);
   const [settingsModalIsOpen, setSettingsModalIsOpen] = useState(false);
+  // group, user, personal
+  const [asideDisplay, setAsideDisplay] = useState("group");
+
+  const isMobile =
+    typeof window !== "undefined" ? window.innerWidth < 768 : false;
 
   const toggleNavBar = () => {
     setNavBarIsExpanded((prev) => !prev);
@@ -40,18 +49,30 @@ export const AppContextProvider = ({ children }: PropsType) => {
     setMobileAsideIsExpanded(false);
   };
 
-  const toggleAside = () => {
-    setAsideIsExpanded((prev) => !prev);
-    setMobileAsideIsExpanded((prev) => !prev);
-    setMobileNavBarIsExpanded(false);
+  const openAside = (display: string) => {
+    setAsideDisplay(display);
+    setAsideIsExpanded(true);
+    setMobileAsideIsExpanded(true);
+    setMobileAsideIsExpanded(false);
+  };
+
+  const closeAside = () => {
+    setAsideIsExpanded(false);
+    setMobileAsideIsExpanded(false);
+  };
+
+  const toggleAside = (display: string) => {
+    if (asideDisplay !== display) {
+      closeAside();
+      setTimeout(() => {
+        openAside(display);
+      }, 300);
+    }
   };
 
   const toggleSettingsModal = () => {
     setSettingsModalIsOpen((prev) => !prev);
   };
-
-  const isMobile =
-    typeof window !== "undefined" ? window.innerWidth < 768 : false;
 
   return (
     <AppContext.Provider
@@ -62,6 +83,9 @@ export const AppContextProvider = ({ children }: PropsType) => {
         mobileAsideIsExpanded,
         toggleNavBar,
         toggleAside,
+        openAside,
+        closeAside,
+        asideDisplay,
         isMobile,
         settingsModalIsOpen,
         toggleSettingsModal,

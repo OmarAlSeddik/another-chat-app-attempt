@@ -7,7 +7,7 @@ const NavFooter = () => {
   const toggleModal = () => toggleSettingsModal && toggleSettingsModal();
 
   const handleClick = () => {
-    toggleAside && toggleAside();
+    toggleAside && toggleAside("personal");
   };
 
   return (

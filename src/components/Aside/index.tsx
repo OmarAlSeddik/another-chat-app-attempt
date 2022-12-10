@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { useSwipeable } from "react-swipeable";
 import { useAppContext } from "../../context/AppContext";
 import About from "./About";
@@ -27,15 +28,23 @@ const Aside = () => {
     { displayName: "User", photoUrl: "U" },
   ];
 
-  const { toggleAside } = useAppContext();
+  const { toggleAside, asideDisplay } = useAppContext();
+
+  const router = useRouter();
+  const url = router.route;
+  const isADirectPage = url.match(/direct/);
+  const isAGroupPage = url.match(/group/);
 
   const handlers = useSwipeable({
     onSwipedRight: () => {
-      if (toggleAside) toggleAside();
+      if (toggleAside) {
+        if (isADirectPage) toggleAside("user");
+        else if (isAGroupPage) toggleAside("group");
+        else toggleAside("personal");
+      }
     },
   });
 
-  const type = "settings";
   const photoUrl = "N";
   const id = "id0123456789";
   const name = "Name";
@@ -52,7 +61,7 @@ const Aside = () => {
     : "w-[0] overflow-hidden";
 
   return (
-    <div
+    <aside
       className={`scrollbar flex ${dynamicStyle} ${mobileDynamicStyle} flex-shrink-0 flex-col
       items-center overflow-y-scroll border-l border-primary1 bg-primary3 transition-all`}
       {...handlers}
@@ -61,14 +70,14 @@ const Aside = () => {
       <hr className="w-full border-primary1" />
       <About about={about} />
       <hr className="w-full border-primary1" />
-      <ButtonContainer type={type} photoUrl={photoUrl} />
+      <ButtonContainer asideDisplay={asideDisplay} photoUrl={photoUrl} />
       <hr className="w-full border-primary1" />
-      <ListText type={type} />
+      <ListText asideDisplay={asideDisplay} />
       <hr className="w-full border-primary1" />
       <SearchInput />
       <hr className="w-full border-primary1" />
       <List rooms={rooms} />
-    </div>
+    </aside>
   );
 };
 
