@@ -1,4 +1,3 @@
-import { useRouter } from "next/router";
 import { useSwipeable } from "react-swipeable";
 import { useAppContext } from "../../context/AppContext";
 import About from "./About";
@@ -30,18 +29,9 @@ const Aside = () => {
 
   const { toggleAside, asideDisplay } = useAppContext();
 
-  const router = useRouter();
-  const url = router.route;
-  const isADirectPage = url.match(/direct/);
-  const isAGroupPage = url.match(/group/);
-
   const handlers = useSwipeable({
     onSwipedRight: () => {
-      if (toggleAside) {
-        if (isADirectPage) toggleAside("user");
-        else if (isAGroupPage) toggleAside("group");
-        else toggleAside("personal");
-      }
+      toggleAside && toggleAside();
     },
   });
 

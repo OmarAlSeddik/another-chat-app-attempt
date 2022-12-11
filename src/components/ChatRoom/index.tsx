@@ -15,12 +15,12 @@ const ChatRoom = () => {
   const handlers = useSwipeable({
     onSwipedRight: () => {
       if (toggleNavBar && toggleAside) {
-        mobileAsideIsExpanded ? toggleAside("group") : toggleNavBar();
+        mobileAsideIsExpanded ? toggleAside() : toggleNavBar();
       }
     },
     onSwipedLeft: () => {
       if (toggleNavBar && toggleAside) {
-        mobileNavBarIsExpanded ? toggleNavBar() : toggleAside("group");
+        mobileNavBarIsExpanded ? toggleNavBar() : toggleAside();
       }
     },
   });

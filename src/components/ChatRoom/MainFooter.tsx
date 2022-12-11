@@ -1,4 +1,4 @@
-const ChatInput = () => {
+const MainFooter = () => {
   return (
     <div className="px-4 pb-6">
       <input
@@ -9,4 +9,4 @@ const ChatInput = () => {
   );
 };
 
-export default ChatInput;
+export default MainFooter;

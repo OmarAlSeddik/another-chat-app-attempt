@@ -9,13 +9,13 @@ type PropsType = {
 };
 
 const Details = ({ name, id, photoUrl }: PropsType) => {
-  const { toggleAside } = useAppContext();
+  const { closeAside } = useAppContext();
 
   return (
     <div className="relative flex w-full flex-col items-center py-2">
       <button
         className="absolute right-2 rounded bg-red-700 px-2 py-0.5 transition-all hover:bg-red-500"
-        onClick={() => toggleAside && toggleAside("personal")}
+        onClick={() => closeAside && closeAside()}
       >
         <FontAwesomeIcon icon={faXmark} className="text-[1.5rem]" />
       </button>

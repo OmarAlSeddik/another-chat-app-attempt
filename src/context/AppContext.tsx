@@ -1,3 +1,4 @@
+import { useRouter } from "next/router";
 import { createContext, useContext, useState } from "react";
 
 type ContextType = {
@@ -6,9 +7,10 @@ type ContextType = {
   mobileNavBarIsExpanded: boolean;
   mobileAsideIsExpanded: boolean;
   toggleNavBar?: () => void;
-  toggleAside?: (display: string) => void;
   openAside?: (display: string) => void;
   closeAside?: () => void;
+  toggleAside?: () => void;
+  openPersonal?: () => void;
   isMobile: boolean;
   settingsModalIsOpen: boolean;
   toggleSettingsModal?: () => void;
@@ -43,6 +45,19 @@ export const AppContextProvider = ({ children }: PropsType) => {
   const isMobile =
     typeof window !== "undefined" ? window.innerWidth < 768 : false;
 
+  const router = useRouter();
+
+  const getDisplay = () => {
+    const url = router.route;
+    const isADirectPage = url.match(/direct/);
+    const isAGroupPage = url.match(/group/);
+    let display;
+    if (isADirectPage) display = "user";
+    else if (isAGroupPage) display = "group";
+    else display = "personal";
+    return display;
+  };
+
   const toggleNavBar = () => {
     setNavBarIsExpanded((prev) => !prev);
     setMobileNavBarIsExpanded((prev) => !prev);
@@ -53,7 +68,7 @@ export const AppContextProvider = ({ children }: PropsType) => {
     setAsideDisplay(display);
     setAsideIsExpanded(true);
     setMobileAsideIsExpanded(true);
-    setMobileAsideIsExpanded(false);
+    setMobileNavBarIsExpanded(false);
   };
 
   const closeAside = () => {
@@ -61,12 +76,26 @@ export const AppContextProvider = ({ children }: PropsType) => {
     setMobileAsideIsExpanded(false);
   };
 
-  const toggleAside = (display: string) => {
-    if (asideDisplay !== display) {
-      closeAside();
-      setTimeout(() => {
-        openAside(display);
-      }, 300);
+  const toggleAside = () => {
+    if (isMobile) {
+      mobileAsideIsExpanded ? closeAside() : openAside(getDisplay());
+    }
+    if (!isMobile) {
+      asideIsExpanded ? closeAside() : openAside(getDisplay());
+    }
+  };
+
+  const openPersonal = () => {
+    if (isMobile) openAside("personal");
+    if (!isMobile) {
+      if (!asideIsExpanded) openAside("personal");
+      else {
+        if (asideDisplay === "personal") return;
+        else {
+          closeAside();
+          setTimeout(() => openAside("personal"), 300);
+        }
+      }
     }
   };
 
@@ -82,9 +111,10 @@ export const AppContextProvider = ({ children }: PropsType) => {
         mobileNavBarIsExpanded,
         mobileAsideIsExpanded,
         toggleNavBar,
-        toggleAside,
         openAside,
         closeAside,
+        toggleAside,
+        openPersonal,
         asideDisplay,
         isMobile,
         settingsModalIsOpen,

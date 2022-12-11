@@ -3,11 +3,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useAppContext } from "../../context/AppContext";
 
 const NavFooter = () => {
-  const { toggleAside, toggleSettingsModal } = useAppContext();
+  const { openPersonal, toggleSettingsModal } = useAppContext();
   const toggleModal = () => toggleSettingsModal && toggleSettingsModal();
 
   const handleClick = () => {
-    toggleAside && toggleAside("personal");
+    openPersonal && openPersonal();
   };
 
   return (
