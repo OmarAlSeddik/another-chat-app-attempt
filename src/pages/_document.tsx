@@ -16,7 +16,7 @@ export default function Document() {
         href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;700&display=swap"
         rel="stylesheet"
       />
-      <link rel="icon" href="/favicon.ico" />
+      <link rel="icon" href="favicon.ico" />
       <body className="text-silver select-none bg-primary4 font-outfit text-medium text-text2">
         <Main />
         <NextScript />
