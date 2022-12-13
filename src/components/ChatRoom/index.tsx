@@ -2,7 +2,6 @@ import { useSwipeable } from "react-swipeable";
 import { useAppContext } from "../../context/AppContext";
 import MainBody from "./MainBody";
 import MainFooter from "./MainFooter";
-import MainHeader from "./MainHeader";
 
 const ChatRoom = () => {
   const {
@@ -31,8 +30,6 @@ const ChatRoom = () => {
       ${mobileAsideIsExpanded && "ml-[-20rem] md:ml-0"} md:shrink`}
       {...handlers}
     >
-      <MainHeader />
-      <hr className="border-primary1" />
       <MainBody />
       <MainFooter />
     </div>

@@ -4,7 +4,6 @@ import { useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useSwipeable } from "react-swipeable";
 import { auth } from "../../firebase";
-import MainHeader from "../components/ChatRoom/MainHeader";
 import Loading from "../components/Shared/Loading";
 import { useAppContext } from "../context/AppContext";
 
@@ -44,7 +43,6 @@ const NotFoundPage: NextPage = () => {
     ${mobileAsideIsExpanded && "ml-[-20rem] md:ml-0"} md:shrink`}
       {...handlers}
     >
-      <MainHeader />
       <hr className="border-primary1" />
       <span className="flex h-full items-center justify-center">
         Page Not Found...
