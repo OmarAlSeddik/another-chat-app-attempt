@@ -1,31 +1,11 @@
-import { faGear } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useAppContext } from "../../context/AppContext";
 
-type PropsType = {
-  asideDisplay: string;
-  photoUrl: string;
-};
+const ButtonContainer = () => {
+  const { isADirectPage, isAGroupPage } = useAppContext();
 
-const ButtonContainer = ({ asideDisplay }: PropsType) => {
-  const { toggleSettingsModal } = useAppContext();
-  const toggleModal = () => toggleSettingsModal && toggleSettingsModal();
-
-  if (asideDisplay === "personal")
-    return (
-      <>
-        <div
-          className="flex h-12 w-full shrink-0 cursor-pointer items-center
-        justify-center gap-2 bg-primary2 p-2 transition-all hover:bg-primary6"
-          onClick={toggleModal}
-        >
-          <FontAwesomeIcon icon={faGear} className="fa-lg" />
-          <span>Settings</span>
-        </div>
-      </>
-    );
-
-  const text = asideDisplay === "group" ? "Leave Group" : "Block User";
+  let text;
+  if (isADirectPage) text = "Block User";
+  if (isAGroupPage) text = "Leave Group";
 
   return (
     <span className="cursor-pointer p-[0.8125rem] text-[#a02d2f] hover:text-[#d83c3e]">

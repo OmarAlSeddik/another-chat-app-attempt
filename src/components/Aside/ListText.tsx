@@ -1,10 +1,11 @@
-type PropsType = { asideDisplay: string };
+import { useAppContext } from "../../context/AppContext";
 
-const ListText = ({ asideDisplay }: PropsType) => {
+const ListText = () => {
+  const { isAGroupPage, isADirectPage } = useAppContext();
+
   let text;
-  if (asideDisplay === "user") text = "Mutual Groups";
-  if (asideDisplay === "group") text = "Group Members";
-  if (asideDisplay === "personal") text = "Blocked Users";
+  if (isADirectPage) text = "Mutual Groups";
+  if (isAGroupPage) text = "Group Members";
 
   return <span className="p-[0.8125rem]">{text}</span>;
 };

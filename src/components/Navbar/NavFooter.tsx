@@ -3,20 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useAppContext } from "../../context/AppContext";
 
 const NavFooter = () => {
-  const { openPersonal, toggleSettingsModal } = useAppContext();
+  const { toggleSettingsModal } = useAppContext();
   const toggleModal = () => toggleSettingsModal && toggleSettingsModal();
-
-  const handleClick = () => {
-    openPersonal && openPersonal();
-  };
 
   return (
     <>
       <div className="flex w-full bg-primary2">
-        <div
-          className="flex h-12 shrink-0 grow cursor-pointer gap-4 p-2 transition-all hover:bg-primary6"
-          onClick={handleClick}
-        >
+        <div className="flex h-12 shrink-0 grow cursor-pointer gap-4 p-2 transition-all hover:bg-primary6">
           <div className="w-8 rounded-[50%] bg-primary1" />
           <div className="flex shrink-0 items-center">
             <span>User Display Name</span>

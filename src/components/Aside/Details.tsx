@@ -1,10 +1,8 @@
-type PropsType = {
-  name: string;
-  id: string;
-  photoUrl: string;
-};
+const Details = () => {
+  const photoUrl = "N";
+  const id = "id0123456789";
+  const name = "Name";
 
-const Details = ({ name, id, photoUrl }: PropsType) => {
   return (
     <div className="relative flex w-full flex-col items-center py-2">
       <div className="mb-4 flex h-[8rem] w-[8rem] items-center justify-center rounded-[50%] bg-primary1">

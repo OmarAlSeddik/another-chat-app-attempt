@@ -1,8 +1,7 @@
-type PropsType = {
-  about: string;
-};
+const About = () => {
+  const about =
+    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.";
 
-const About = ({ about }: PropsType) => {
   return (
     <div className=" flex w-full flex-col gap-1 p-2">
       <div className="flex items-center">

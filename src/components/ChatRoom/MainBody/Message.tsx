@@ -1,7 +1,7 @@
 const Message = () => {
   return (
-    <div className="flex gap-4 px-4 py-1 md:hover:bg-primary3">
-      <div className="h-10 w-10 flex-shrink-0 cursor-pointer rounded-[50%] bg-primary1 md:hover:shadow-xl" />
+    <div className="flex gap-4 px-4 py-1 lg:hover:bg-primary3">
+      <div className="h-10 w-10 flex-shrink-0 cursor-pointer rounded-[50%] bg-primary1 lg:hover:shadow-xl" />
       <div className="flex flex-col">
         <div className="flex items-end gap-4">
           <span className="cursor-pointer font-bold hover:underline">

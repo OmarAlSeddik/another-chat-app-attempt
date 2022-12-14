@@ -10,8 +10,8 @@ const Navbar = () => {
     useAppContext();
 
   const dynamicStyle = navBarIsExpanded
-    ? "md:w-[20rem]"
-    : "md:w-[0] overflow-hidden";
+    ? "lg:w-[20rem]"
+    : "lg:w-[0] overflow-hidden";
   const mobileDynamicStyle = mobileNavBarIsExpanded
     ? "w-[20rem]"
     : "w-[0] overflow-hidden";

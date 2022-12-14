@@ -6,7 +6,7 @@ import Aside from "../components/Aside";
 import Navbar from "../components/Navbar";
 import Header from "../components/Shared/Header";
 import SettingsModal from "../components/Shared/SettingsModal";
-import { AppContextProvider } from "../context/AppContext";
+import { AppContextProvider, useAppContext } from "../context/AppContext";
 import "../styles/globals.css";
 
 config.autoAddCss = false;
@@ -14,6 +14,9 @@ config.autoAddCss = false;
 const MyApp: AppType = ({ Component, pageProps }) => {
   const router = useRouter();
   const url = router.route;
+  const { isADirectPage, isAGroupPage } = useAppContext();
+  console.log(isADirectPage);
+  console.log(isAGroupPage);
 
   return (
     <AppContextProvider>

@@ -40,10 +40,9 @@ const NotFoundPage: NextPage = () => {
   return (
     <div
       className={`flex w-full shrink-0 flex-col transition-all
-    ${mobileAsideIsExpanded && "ml-[-20rem] md:ml-0"} md:shrink`}
+    ${mobileAsideIsExpanded && "ml-[-20rem] lg:ml-0"} lg:shrink`}
       {...handlers}
     >
-      <hr className="border-primary1" />
       <span className="flex h-full items-center justify-center">
         Page Not Found...
       </span>

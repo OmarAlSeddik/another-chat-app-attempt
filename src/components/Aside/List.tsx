@@ -1,9 +1,3 @@
-type RoomType = { displayName: string; photoUrl: string };
-
-type PropsType = {
-  rooms: Array<RoomType>;
-};
-
 type RoomProps = {
   photoUrl: string;
   displayName: string;
@@ -22,7 +16,26 @@ const Room = ({ photoUrl, displayName }: RoomProps) => {
   );
 };
 
-const List = ({ rooms }: PropsType) => {
+const List = () => {
+  const rooms = [
+    { displayName: "User", photoUrl: "U" },
+    { displayName: "User", photoUrl: "U" },
+    { displayName: "User", photoUrl: "U" },
+    { displayName: "User", photoUrl: "U" },
+    { displayName: "User", photoUrl: "U" },
+    { displayName: "User", photoUrl: "U" },
+    { displayName: "User", photoUrl: "U" },
+    { displayName: "User", photoUrl: "U" },
+    { displayName: "User", photoUrl: "U" },
+    { displayName: "User", photoUrl: "U" },
+    { displayName: "User", photoUrl: "U" },
+    { displayName: "User", photoUrl: "U" },
+    { displayName: "User", photoUrl: "U" },
+    { displayName: "User", photoUrl: "U" },
+    { displayName: "User", photoUrl: "U" },
+    { displayName: "User", photoUrl: "U" },
+  ];
+
   return (
     <div className="scrollbar flex min-h-[20rem] w-full grow flex-col gap-2 overflow-y-scroll p-2">
       {rooms.map((room, index) => (

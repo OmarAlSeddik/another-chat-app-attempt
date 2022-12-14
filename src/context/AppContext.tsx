@@ -7,14 +7,14 @@ type ContextType = {
   mobileNavBarIsExpanded: boolean;
   mobileAsideIsExpanded: boolean;
   toggleNavBar?: () => void;
-  openAside?: (display: string) => void;
+  openAside?: () => void;
   closeAside?: () => void;
   toggleAside?: () => void;
-  openPersonal?: () => void;
   isMobile: boolean;
   settingsModalIsOpen: boolean;
   toggleSettingsModal?: () => void;
-  asideDisplay: string;
+  isADirectPage: boolean;
+  isAGroupPage: boolean;
 };
 
 const defaultState = {
@@ -24,7 +24,8 @@ const defaultState = {
   mobileAsideIsExpanded: false,
   isMobile: false,
   settingsModalIsOpen: false,
-  asideDisplay: "group",
+  isADirectPage: false,
+  isAGroupPage: false,
 };
 
 const AppContext = createContext<ContextType>(defaultState);
@@ -39,24 +40,13 @@ export const AppContextProvider = ({ children }: PropsType) => {
   const [mobileNavBarIsExpanded, setMobileNavBarIsExpanded] = useState(false);
   const [mobileAsideIsExpanded, setMobileAsideIsExpanded] = useState(false);
   const [settingsModalIsOpen, setSettingsModalIsOpen] = useState(false);
-  // group, user, personal
-  const [asideDisplay, setAsideDisplay] = useState("group");
 
+  const pathname = useRouter().pathname;
+  console.log(pathname);
+  const isADirectPage = !!pathname?.match(/direct/);
+  const isAGroupPage = !!pathname?.match(/group/);
   const isMobile =
-    typeof window !== "undefined" ? window.innerWidth < 768 : false;
-
-  const router = useRouter();
-
-  const getDisplay = () => {
-    const url = router.route;
-    const isADirectPage = url.match(/direct/);
-    const isAGroupPage = url.match(/group/);
-    let display;
-    if (isADirectPage) display = "user";
-    else if (isAGroupPage) display = "group";
-    else display = "personal";
-    return display;
-  };
+    typeof window !== "undefined" ? window.innerWidth < 1024 : false;
 
   const toggleNavBar = () => {
     setNavBarIsExpanded((prev) => !prev);
@@ -64,8 +54,7 @@ export const AppContextProvider = ({ children }: PropsType) => {
     setMobileAsideIsExpanded(false);
   };
 
-  const openAside = (display: string) => {
-    setAsideDisplay(display);
+  const openAside = () => {
     setAsideIsExpanded(true);
     setMobileAsideIsExpanded(true);
     setMobileNavBarIsExpanded(false);
@@ -78,24 +67,10 @@ export const AppContextProvider = ({ children }: PropsType) => {
 
   const toggleAside = () => {
     if (isMobile) {
-      mobileAsideIsExpanded ? closeAside() : openAside(getDisplay());
+      mobileAsideIsExpanded ? closeAside() : openAside();
     }
     if (!isMobile) {
-      asideIsExpanded ? closeAside() : openAside(getDisplay());
-    }
-  };
-
-  const openPersonal = () => {
-    if (isMobile) openAside("personal");
-    if (!isMobile) {
-      if (!asideIsExpanded) openAside("personal");
-      else {
-        if (asideDisplay === "personal") return;
-        else {
-          closeAside();
-          setTimeout(() => openAside("personal"), 300);
-        }
-      }
+      asideIsExpanded ? closeAside() : openAside();
     }
   };
 
@@ -114,11 +89,11 @@ export const AppContextProvider = ({ children }: PropsType) => {
         openAside,
         closeAside,
         toggleAside,
-        openPersonal,
-        asideDisplay,
         isMobile,
         settingsModalIsOpen,
         toggleSettingsModal,
+        isADirectPage,
+        isAGroupPage,
       }}
     >
       {children}
