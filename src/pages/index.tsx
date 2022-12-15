@@ -3,7 +3,7 @@ import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../firebase";
-import ChatRoom from "../components/ChatRoom";
+import Home from "../components/Home";
 import Loading from "../components/Shared/Loading";
 
 const HomePage: NextPage = () => {
@@ -16,7 +16,7 @@ const HomePage: NextPage = () => {
 
   if (loading) return <Loading />;
 
-  return <ChatRoom />;
+  return <Home />;
 };
 
 export default HomePage;

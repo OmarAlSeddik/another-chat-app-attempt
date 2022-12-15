@@ -29,8 +29,10 @@ const SettingsModal = () => {
           <FontAwesomeIcon icon={faXmark} className="text-[1.5rem]" />
         </button>
         <div className="flex flex-col items-center gap-4">
-          <div className="group flex h-[8rem] w-[8rem] cursor-pointer items-center justify-center rounded-[50%] bg-primary1 transition-all hover:opacity-50">
-            {/* <span>{photoUrl}</span> */}
+          <div
+            className="group flex h-[8rem] w-[8rem] cursor-pointer items-center justify-center
+          rounded-[50%] bg-primary1 transition-all hover:opacity-50"
+          >
             <FontAwesomeIcon
               icon={faPencil}
               className="fa-lg opacity-0 transition-all group-hover:opacity-100"

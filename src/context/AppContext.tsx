@@ -42,7 +42,6 @@ export const AppContextProvider = ({ children }: PropsType) => {
   const [settingsModalIsOpen, setSettingsModalIsOpen] = useState(false);
 
   const pathname = useRouter().pathname;
-  console.log(pathname);
   const isADirectPage = !!pathname?.match(/direct/);
   const isAGroupPage = !!pathname?.match(/group/);
   const isMobile =

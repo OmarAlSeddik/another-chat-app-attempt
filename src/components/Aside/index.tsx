@@ -8,8 +8,13 @@ import ListText from "./ListText";
 import SearchInput from "./SearchInput";
 
 const Aside = () => {
-  const { toggleAside, asideIsExpanded, mobileAsideIsExpanded } =
-    useAppContext();
+  const {
+    toggleAside,
+    asideIsExpanded,
+    mobileAsideIsExpanded,
+    isADirectPage,
+    isAGroupPage,
+  } = useAppContext();
 
   const handlers = useSwipeable({
     onSwipedRight: () => {
@@ -23,6 +28,8 @@ const Aside = () => {
   const mobileDynamicStyle = mobileAsideIsExpanded
     ? "w-[20rem]"
     : "w-[0] overflow-hidden";
+
+  if (!isADirectPage && !isAGroupPage) return <div></div>;
 
   return (
     <aside
