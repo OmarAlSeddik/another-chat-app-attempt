@@ -37,7 +37,7 @@ const List = () => {
   ];
 
   return (
-    <div className="scrollbar flex min-h-[20rem] w-full grow flex-col gap-2 overflow-y-scroll p-2">
+    <div className="scrollbar flex min-h-[20rem] w-full grow flex-col gap-2 p-2">
       {rooms.map((room, index) => (
         <Room
           displayName={room.displayName}

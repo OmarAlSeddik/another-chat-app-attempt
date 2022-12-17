@@ -2,7 +2,7 @@ import Message from "./Message";
 
 const MainBody = () => {
   return (
-    <div className="scrollbar flex grow flex-col gap-4 overflow-y-scroll">
+    <div className="scrollbar flex grow flex-col gap-4">
       <Message />
       <Message />
       <Message />

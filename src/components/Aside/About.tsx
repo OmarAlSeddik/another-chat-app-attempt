@@ -7,7 +7,7 @@ const About = () => {
       <div className="flex items-center">
         <span className="text-text1">About</span>
       </div>
-      <div className="scrollbar h-[5.5rem] w-full select-text resize-none overflow-y-scroll rounded bg-primary3">
+      <div className="scrollbar h-[5.5rem] w-full select-text resize-none rounded bg-primary3">
         {about}
       </div>
     </div>

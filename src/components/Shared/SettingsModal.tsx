@@ -21,7 +21,7 @@ const SettingsModal = () => {
         className="fixed top-0 left-0 right-0 bottom-0 z-50 bg-[rgba(0,0,0,0.5)]"
         onClick={toggleSettingsModal}
       />
-      <div className="absolute top-1/2 left-1/2 z-50 translate-x-[-50%] translate-y-[-50%] rounded bg-primary2 p-4">
+      <div className="absolute top-1/2 left-1/2 z-50 flex w-[20rem] translate-x-[-50%] translate-y-[-50%] flex-col rounded bg-primary2 p-4">
         <button
           className="absolute right-4 rounded bg-red-700 px-2 py-0.5 transition-all hover:bg-red-500"
           onClick={toggleSettingsModal}
@@ -38,25 +38,25 @@ const SettingsModal = () => {
               className="fa-lg opacity-0 transition-all group-hover:opacity-100"
             />
           </div>
-          <div className="flex w-full gap-4">
+          <div className="flex w-full items-center justify-between">
             <input
               type="text"
               placeholder="Current Username"
-              className="flex items-center rounded-lg bg-primary5 px-2 outline-none"
+              className="flex w-8/12 items-center rounded-lg bg-primary5 p-2 outline-none"
             />
-            <button className="w-[4.25rem] rounded bg-primary4 p-1 transition-all hover:bg-primary6">
+            <button className="w-3/12 rounded bg-primary4 p-1 transition-all hover:bg-primary6">
               Change
             </button>
           </div>
-          <div className="flex w-full gap-4">
+          <div className="flex w-full justify-between">
             <textarea
               cols={10}
               rows={4}
               maxLength={120}
               placeholder="Current Note"
-              className="h-[12rem] w-full resize-none rounded-lg bg-primary5 p-2 outline-none"
+              className="h-[12rem] w-8/12 resize-none rounded-lg bg-primary5 p-2 outline-none"
             />
-            <div className="flex flex-col gap-4">
+            <div className="flex w-3/12 flex-col gap-4">
               <button className="rounded bg-primary4 p-1 transition-all hover:bg-primary6">
                 Change
               </button>

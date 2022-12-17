@@ -8,7 +8,7 @@ const Header = () => {
   const router = useRouter();
 
   return (
-    <div className="absolute flex h-12 w-full flex-shrink-0 items-center justify-between border-b border-primary1 bg-primary2 px-4">
+    <div className="absolute z-50 flex h-12 w-full flex-shrink-0 items-center justify-between border-b border-primary1 bg-primary2 px-4">
       <button
         className="flex items-center justify-center transition-all hover:scale-90"
         onClick={toggleNavBar}

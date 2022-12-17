@@ -32,7 +32,7 @@ const NavBody = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="scrollbar flex w-full grow flex-col gap-2 overflow-y-scroll p-2">
+    <div className="scrollbar flex w-full grow flex-col gap-2 p-2">
       <div
         className="flex h-12 shrink-0 cursor-pointer items-center justify-center gap-4
       rounded p-2 text-[#4caf50] hover:bg-primary6"

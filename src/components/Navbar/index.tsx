@@ -24,8 +24,8 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`flex ${dynamicStyle} ${mobileDynamicStyle} flex-shrink-0 flex-col items-center
-      border-r border-primary1 bg-primary3 transition-all`}
+      className={`flex ${dynamicStyle} ${mobileDynamicStyle} mt-12 flex-shrink-0
+      flex-col items-center border-r border-primary1 bg-primary3 transition-all`}
       {...handlers}
     >
       <NavHeader />

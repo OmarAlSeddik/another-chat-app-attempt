@@ -18,9 +18,9 @@ const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <AppContextProvider>
       <SettingsModal />
-      <div className="absolute inset-0 flex w-full overflow-hidden">
+      <div className="absolute inset-0 w-full overflow-hidden">
         <Header />
-        <div className="mt-12 flex w-full">
+        <div className="flex h-full w-full">
           {url !== "/auth" && <Navbar />}
           <Component {...pageProps} />
           {url !== "/auth" && <Aside />}
