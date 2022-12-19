@@ -5,7 +5,8 @@ const ListText = () => {
 
   let text;
   if (isADirectPage) text = "Mutual Groups";
-  if (isAGroupPage) text = "Group Members";
+  else if (isAGroupPage) text = "Group Members";
+  else text = "Blocked Users";
 
   return <span className="p-[0.8125rem]">{text}</span>;
 };

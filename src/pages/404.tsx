@@ -39,13 +39,12 @@ const NotFoundPage: NextPage = () => {
 
   return (
     <div
-      className={`flex w-full shrink-0 flex-col transition-all
-    ${mobileAsideIsExpanded && "ml-[-20rem] lg:ml-0"} lg:shrink`}
+      className={`flex h-full w-full shrink-0 flex-col items-center justify-center text-text1 transition-all
+      ${mobileAsideIsExpanded && "ml-[-20rem] lg:ml-0"} lg:shrink`}
       {...handlers}
     >
-      <span className="flex h-full items-center justify-center">
-        Page Not Found...
-      </span>
+      <span className="text-9xl">404</span>
+      <span className="text-extraLarge">The Page Does Not Exist</span>
     </div>
   );
 };
