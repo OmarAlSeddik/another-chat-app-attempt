@@ -6,6 +6,7 @@ import Aside from "../components/Aside";
 import Navbar from "../components/Navbar";
 import Header from "../components/Shared/Header";
 import SettingsModal from "../components/Shared/SettingsModal";
+import UserModal from "../components/Shared/UserModal";
 import { AppContextProvider } from "../context/AppContext";
 import "../styles/globals.css";
 
@@ -18,6 +19,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
   return (
     <AppContextProvider>
       <SettingsModal />
+      <UserModal />
       <div className="absolute inset-0 w-full overflow-hidden">
         <Header />
         <div className="flex h-full w-full">

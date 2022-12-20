@@ -13,6 +13,8 @@ type ContextType = {
   isMobile: boolean;
   settingsModalIsOpen: boolean;
   toggleSettingsModal?: () => void;
+  userModalIsOpen: boolean;
+  toggleUserModal?: () => void;
   isADirectPage: boolean;
   isAGroupPage: boolean;
 };
@@ -26,6 +28,7 @@ const defaultState = {
   settingsModalIsOpen: false,
   isADirectPage: false,
   isAGroupPage: false,
+  userModalIsOpen: false,
 };
 
 const AppContext = createContext<ContextType>(defaultState);
@@ -40,6 +43,7 @@ export const AppContextProvider = ({ children }: PropsType) => {
   const [mobileNavBarIsExpanded, setMobileNavBarIsExpanded] = useState(false);
   const [mobileAsideIsExpanded, setMobileAsideIsExpanded] = useState(false);
   const [settingsModalIsOpen, setSettingsModalIsOpen] = useState(false);
+  const [userModalIsOpen, setUserModalIsOpen] = useState(false);
 
   const pathname = useRouter().pathname;
   const isADirectPage = !!pathname?.match(/direct/);
@@ -53,6 +57,12 @@ export const AppContextProvider = ({ children }: PropsType) => {
     setMobileAsideIsExpanded(false);
   };
 
+  const toggleAside = () => {
+    setAsideIsExpanded((prev) => !prev);
+    setMobileAsideIsExpanded((prev) => !prev);
+    setMobileNavBarIsExpanded(false);
+  };
+
   const openAside = () => {
     setAsideIsExpanded(true);
     setMobileAsideIsExpanded(true);
@@ -64,17 +74,12 @@ export const AppContextProvider = ({ children }: PropsType) => {
     setMobileAsideIsExpanded(false);
   };
 
-  const toggleAside = () => {
-    if (isMobile) {
-      mobileAsideIsExpanded ? closeAside() : openAside();
-    }
-    if (!isMobile) {
-      asideIsExpanded ? closeAside() : openAside();
-    }
-  };
-
   const toggleSettingsModal = () => {
     setSettingsModalIsOpen((prev) => !prev);
+  };
+
+  const toggleUserModal = () => {
+    setUserModalIsOpen((prev) => !prev);
   };
 
   return (
@@ -93,6 +98,8 @@ export const AppContextProvider = ({ children }: PropsType) => {
         toggleSettingsModal,
         isADirectPage,
         isAGroupPage,
+        userModalIsOpen,
+        toggleUserModal,
       }}
     >
       {children}
