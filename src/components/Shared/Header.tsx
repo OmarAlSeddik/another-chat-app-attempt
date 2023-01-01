@@ -19,7 +19,7 @@ const Header = () => {
         NextFire Chat App
       </span>
       <button
-        className="flex w-8 items-center justify-center transition-all hover:scale-90"
+        className="flex w-8 items-center justify-center transition-all hover:scale-95"
         onClick={toggleAside}
       >
         <FontAwesomeIcon icon={faEllipsisVertical} className="fa-2x" />

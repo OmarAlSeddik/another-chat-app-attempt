@@ -6,12 +6,33 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { signOut } from "firebase/auth";
-import { auth } from "../../../firebase";
+import { ref } from "firebase/storage";
+import { useState } from "react";
+import { useUploadFile } from "react-firebase-hooks/storage";
+import { auth, storage } from "../../../firebase";
 import { useAppContext } from "../../context/AppContext";
 
 const SettingsModal = () => {
   const { settingsModalIsOpen, toggleSettingsModal } = useAppContext();
   const logOut = () => signOut(auth);
+
+  const [uploadFile, uploading, snapshot, error] = useUploadFile();
+  const reference = ref(storage, "file3.jpg");
+  const [selectedFile, setSelectedFile] = useState<File>();
+
+  const upload = async () => {
+    if (selectedFile) {
+      await uploadFile(reference, selectedFile, {
+        contentType: "image/jpeg",
+      });
+    }
+  };
+
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files ? event.target.files[0] : undefined;
+    setSelectedFile(file);
+    upload();
+  };
 
   if (!settingsModalIsOpen) return null;
 
@@ -23,24 +44,38 @@ const SettingsModal = () => {
       />
       <div
         className="absolute top-1/2 left-1/2 z-50 flex w-[20rem] translate-x-[-50%]
-      translate-y-[-50%] flex-col rounded bg-primary3 p-2"
+      translate-y-[-50%] flex-col rounded bg-primary2 p-2"
       >
-        <div className="relative flex flex-col rounded bg-primary2 p-4">
+        <div className="relative flex flex-col rounded bg-primary3 p-4">
           <button
             className="absolute right-1 top-1 rounded bg-red-700 px-2 py-0.5 transition-all hover:bg-red-500"
             onClick={toggleSettingsModal}
           >
-            <FontAwesomeIcon icon={faXmark} className="text-[1.5rem]" />
+            <FontAwesomeIcon
+              icon={faXmark}
+              className="pointer-events-none text-[1.5rem]"
+            />
           </button>
           <div className="flex flex-col items-center gap-4">
             <div
-              className="group flex h-[8rem] w-[8rem] cursor-pointer items-center justify-center
+              className="group relative flex h-[8rem] w-[8rem] items-center justify-center
           rounded-[50%] bg-primary1 transition-all hover:opacity-50"
             >
+              <input
+                type="file"
+                accept="image/*"
+                className="absolute right-0 bottom-0 top-0 left-0 opacity-0"
+                onChange={handleChange}
+              />
               <FontAwesomeIcon
                 icon={faPencil}
-                className="fa-lg opacity-0 transition-all group-hover:opacity-100"
+                className="fa-lg absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] opacity-0 transition-all group-hover:opacity-100"
               />
+              {uploading && (
+                <div className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] text-white">
+                  Uploading...
+                </div>
+              )}
             </div>
             <div className="flex w-full items-center justify-between">
               <input

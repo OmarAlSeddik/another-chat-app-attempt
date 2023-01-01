@@ -10,14 +10,29 @@ const ButtonContainer = () => {
     text = "Settings";
   }
 
-  const personalStyle =
-    "bg-primary2 text-white hover:text-white hover:bg-primary5";
+  const variableStyle =
+    text === "Settings"
+      ? "bg-primary2 w-full text-white hover:text-white hover:bg-primary5"
+      : "text-red-700 transition-all hover:text-red-500";
+
+  const blockUser = () => {
+    return "placeholder";
+  };
+
+  const leaveGroup = () => {
+    return "placeholder";
+  };
+
+  const handleClick = () => {
+    if (isADirectPage) blockUser();
+    else if (isAGroupPage) leaveGroup();
+    else if (toggleSettingsModal) toggleSettingsModal();
+  };
 
   return (
     <span
-      className={`${personalStyle} w-full cursor-pointer p-[0.8125rem]
-      text-center text-[#a02d2f] transition-all hover:text-[#d83c3e]`}
-      onClick={toggleSettingsModal}
+      className={`${variableStyle} cursor-pointer p-[0.8125rem] text-center`}
+      onClick={handleClick}
     >
       {text}
     </span>

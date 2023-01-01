@@ -21,7 +21,7 @@ const MyApp: AppType = ({ Component, pageProps }) => {
       <SettingsModal />
       <UserModal />
       <div className="absolute inset-0 w-full overflow-hidden">
-        <Header />
+        {url !== "/auth" && <Header />}
         <div className="flex h-full w-full">
           {url !== "/auth" && <Navbar />}
           <Component {...pageProps} />
