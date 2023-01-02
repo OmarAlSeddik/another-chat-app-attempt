@@ -1,6 +1,6 @@
 const Details = () => {
   const photoUrl = "N";
-  const id = "id0123456789";
+  const id = "EbTlRB2sxC";
   const name = "Name";
 
   return (

@@ -1,3 +1,5 @@
+import { useAppContext } from "@/context/AppContext";
+import { auth, storage } from "@/firebase";
 import {
   faMoon,
   faPencil,
@@ -8,23 +10,21 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { signOut } from "firebase/auth";
 import { ref } from "firebase/storage";
 import { useState } from "react";
-import { useUploadFile } from "react-firebase-hooks/storage";
-import { auth, storage } from "../../../firebase";
-import { useAppContext } from "../../context/AppContext";
+import { useDownloadURL, useUploadFile } from "react-firebase-hooks/storage";
 
 const SettingsModal = () => {
   const { settingsModalIsOpen, toggleSettingsModal } = useAppContext();
   const logOut = () => signOut(auth);
 
-  const [uploadFile, uploading, snapshot, error] = useUploadFile();
-  const reference = ref(storage, "file3.jpg");
+  const reference = ref(storage, "file.jpg");
+
   const [selectedFile, setSelectedFile] = useState<File>();
+  const [uploadFile, uploading] = useUploadFile();
+  const [image] = useDownloadURL(reference);
 
   const upload = async () => {
     if (selectedFile) {
-      await uploadFile(reference, selectedFile, {
-        contentType: "image/jpeg",
-      });
+      await uploadFile(reference, selectedFile);
     }
   };
 
@@ -59,7 +59,7 @@ const SettingsModal = () => {
           <div className="flex flex-col items-center gap-4">
             <div
               className="group relative flex h-[8rem] w-[8rem] items-center justify-center
-          rounded-[50%] bg-primary1 transition-all hover:opacity-50"
+              overflow-hidden rounded-[50%] bg-primary1 transition-all hover:opacity-50"
             >
               <input
                 type="file"
@@ -71,6 +71,7 @@ const SettingsModal = () => {
                 icon={faPencil}
                 className="fa-lg absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] opacity-0 transition-all group-hover:opacity-100"
               />
+              <img src={image ? image : ""} alt="image" className="w-full" />
               {uploading && (
                 <div className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] text-white">
                   Uploading...

@@ -1,11 +1,11 @@
+import Auth from "@/components/Auth";
+import Loading from "@/components/Shared/Loading";
+import { auth } from "@/firebase";
 import { type NextPage } from "next";
 import Head from "next/head";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "../../firebase";
-import Auth from "../components/Auth";
-import Loading from "../components/Shared/Loading";
 
 const AuthPage: NextPage = () => {
   const router = useRouter();

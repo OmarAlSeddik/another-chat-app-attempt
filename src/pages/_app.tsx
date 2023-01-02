@@ -1,13 +1,13 @@
+import Aside from "@/components/Aside";
+import Navbar from "@/components/Navbar";
+import Header from "@/components/Shared/Header";
+import SettingsModal from "@/components/Shared/SettingsModal";
+import UserModal from "@/components/Shared/UserModal";
+import { AppContextProvider } from "@/context/AppContext";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import { type AppType } from "next/dist/shared/lib/utils";
 import { useRouter } from "next/router";
-import Aside from "../components/Aside";
-import Navbar from "../components/Navbar";
-import Header from "../components/Shared/Header";
-import SettingsModal from "../components/Shared/SettingsModal";
-import UserModal from "../components/Shared/UserModal";
-import { AppContextProvider } from "../context/AppContext";
 import "../styles/globals.css";
 
 config.autoAddCss = false;

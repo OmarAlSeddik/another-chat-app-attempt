@@ -1,5 +1,5 @@
+import { useAppContext } from "@/context/AppContext";
 import { useRef } from "react";
-import { useAppContext } from "../../../context/AppContext";
 
 type MessageProps = {
   id: number;

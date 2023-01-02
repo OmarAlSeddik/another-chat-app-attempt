@@ -1,10 +1,10 @@
+import { auth } from "@/firebase";
 import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
-import { auth } from "../../../firebase";
 
 const Auth = () => {
-  const [signInWithGoogle, user, loading] = useSignInWithGoogle(auth);
+  const [signInWithGoogle] = useSignInWithGoogle(auth);
 
   const login = () => signInWithGoogle();
 

@@ -1,5 +1,5 @@
+import { useAppContext } from "@/context/AppContext";
 import { useSwipeable } from "react-swipeable";
-import { useAppContext } from "../../context/AppContext";
 import RoomBody from "./RoomBody";
 import RoomFooter from "./RoomFooter";
 

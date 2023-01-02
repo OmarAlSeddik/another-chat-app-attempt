@@ -1,6 +1,6 @@
+import { useAppContext } from "@/context/AppContext";
 import { faHashtag } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useAppContext } from "../../context/AppContext";
 
 const NavFooter = () => {
   const { toggleSettingsModal } = useAppContext();

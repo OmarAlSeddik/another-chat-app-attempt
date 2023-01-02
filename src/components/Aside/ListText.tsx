@@ -1,4 +1,4 @@
-import { useAppContext } from "../../context/AppContext";
+import { useAppContext } from "@/context/AppContext";
 
 const ListText = () => {
   const { isAGroupPage, isADirectPage } = useAppContext();

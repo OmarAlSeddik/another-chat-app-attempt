@@ -1,5 +1,5 @@
+import { useAppContext } from "@/context/AppContext";
 import { useSwipeable } from "react-swipeable";
-import { useAppContext } from "../../context/AppContext";
 import Guide from "./Guide";
 import Links from "./Links";
 

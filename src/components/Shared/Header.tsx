@@ -1,7 +1,7 @@
+import { useAppContext } from "@/context/AppContext";
 import { faBars, faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useRouter } from "next/router";
-import { useAppContext } from "../../context/AppContext";
 
 const Header = () => {
   const { toggleNavBar, toggleAside } = useAppContext();

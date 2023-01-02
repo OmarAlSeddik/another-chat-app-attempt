@@ -1,6 +1,6 @@
+import { useAppContext } from "@/context/AppContext";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { useAppContext } from "../../context/AppContext";
 
 const UserModal = () => {
   const { userModalIsOpen, toggleUserModal } = useAppContext();

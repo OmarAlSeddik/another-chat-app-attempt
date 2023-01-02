@@ -1,5 +1,5 @@
+import { useAppContext } from "@/context/AppContext";
 import { useSwipeable } from "react-swipeable";
-import { useAppContext } from "../../context/AppContext";
 import NavBody from "./NavBody";
 import NavFooter from "./NavFooter";
 import NavHeader from "./NavHeader";

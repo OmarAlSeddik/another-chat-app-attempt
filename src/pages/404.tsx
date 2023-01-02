@@ -1,11 +1,11 @@
+import Loading from "@/components/Shared/Loading";
+import { useAppContext } from "@/context/AppContext";
+import { auth } from "@/firebase";
 import { type NextPage } from "next";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { useSwipeable } from "react-swipeable";
-import { auth } from "../../firebase";
-import Loading from "../components/Shared/Loading";
-import { useAppContext } from "../context/AppContext";
 
 const NotFoundPage: NextPage = () => {
   const router = useRouter();
