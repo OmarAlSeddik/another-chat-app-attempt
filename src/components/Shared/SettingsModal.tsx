@@ -1,5 +1,5 @@
 import { useAppContext } from "@/context/AppContext";
-import { auth, storage } from "@/firebase";
+import { auth } from "@/firebase";
 import {
   faMoon,
   faPencil,
@@ -8,31 +8,10 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { signOut } from "firebase/auth";
-import { ref } from "firebase/storage";
-import { useState } from "react";
-import { useDownloadURL, useUploadFile } from "react-firebase-hooks/storage";
 
 const SettingsModal = () => {
   const { settingsModalIsOpen, toggleSettingsModal } = useAppContext();
   const logOut = () => signOut(auth);
-
-  const reference = ref(storage, "file.jpg");
-
-  const [selectedFile, setSelectedFile] = useState<File>();
-  const [uploadFile, uploading] = useUploadFile();
-  const [image] = useDownloadURL(reference);
-
-  const upload = async () => {
-    if (selectedFile) {
-      await uploadFile(reference, selectedFile);
-    }
-  };
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files ? event.target.files[0] : undefined;
-    setSelectedFile(file);
-    upload();
-  };
 
   if (!settingsModalIsOpen) return null;
 
@@ -65,18 +44,11 @@ const SettingsModal = () => {
                 type="file"
                 accept="image/*"
                 className="absolute right-0 bottom-0 top-0 left-0 opacity-0"
-                onChange={handleChange}
               />
               <FontAwesomeIcon
                 icon={faPencil}
                 className="fa-lg absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] opacity-0 transition-all group-hover:opacity-100"
               />
-              <img src={image ? image : ""} alt="image" className="w-full" />
-              {uploading && (
-                <div className="absolute top-1/2 left-1/2 translate-x-[-50%] translate-y-[-50%] text-white">
-                  Uploading...
-                </div>
-              )}
             </div>
             <div className="flex w-full items-center justify-between">
               <input
