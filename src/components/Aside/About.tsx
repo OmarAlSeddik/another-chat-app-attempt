@@ -1,6 +1,14 @@
+import { useAppContext } from "@/context/AppContext";
+import useLoggedInUser from "@/hooks/useLoggedInUser";
+
 const About = () => {
-  const about =
-    "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Lorem ipsum dolor sit amet, consectetur adipisicing elit.";
+  const { isAGroupPage, isADirectPage } = useAppContext();
+  const { note } = useLoggedInUser();
+
+  let about;
+  if (isADirectPage) about = "Other User About";
+  else if (isAGroupPage) about = "Group About";
+  else about = note;
 
   return (
     <div className=" flex w-full flex-col gap-1 p-2">

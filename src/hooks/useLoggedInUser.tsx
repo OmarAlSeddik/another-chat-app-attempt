@@ -13,11 +13,17 @@ const useLoggedInUser = () => {
 
   return {
     loading,
-    colorScheme: userData?.colorScheme,
-    uid: userData?.uid,
+    id: userData?.id,
+    email: userData?.email,
     displayName: userData?.displayName,
     photoUrl: userData?.photoUrl,
-    primaryColor: userData?.primaryColor,
+    note: userData?.note,
+    activeTheme: userData?.activeTheme,
+    activePage: userData?.activePage,
+    groupRooms: userData?.grouprooms,
+    directRooms: userData?.directRooms,
+    blockedUsers: userData?.blockedUsers,
+    messages: userData?.messages,
   };
 };
 
