@@ -1,5 +1,6 @@
 import { useAppContext } from "@/context/AppContext";
 import { auth } from "@/firebase";
+import useLoggedInUser from "@/hooks/useLoggedInUser";
 import {
   faMoon,
   faPencil,
@@ -12,6 +13,7 @@ import { signOut } from "firebase/auth";
 const SettingsModal = () => {
   const { settingsModalIsOpen, toggleSettingsModal } = useAppContext();
   const logOut = () => signOut(auth);
+  const { displayName, note, photoUrl } = useLoggedInUser();
 
   if (!settingsModalIsOpen) return null;
 
@@ -40,6 +42,7 @@ const SettingsModal = () => {
               className="group relative flex h-[8rem] w-[8rem] items-center justify-center
               overflow-hidden rounded-[50%] bg-primary1 transition-all hover:opacity-50"
             >
+              <img src={photoUrl} alt="" className="h-full w-full" />
               <input
                 type="file"
                 accept="image/*"
@@ -53,7 +56,7 @@ const SettingsModal = () => {
             <div className="flex w-full items-center justify-between">
               <input
                 type="text"
-                placeholder="Current Username"
+                placeholder={displayName}
                 className="flex w-8/12 items-center rounded-lg bg-primary5 p-2 outline-none"
               />
               <button className="w-3/12 rounded bg-primary4 p-1 transition-all hover:bg-primary6">
@@ -65,7 +68,7 @@ const SettingsModal = () => {
                 cols={10}
                 rows={4}
                 maxLength={120}
-                placeholder="Current Note"
+                placeholder={note}
                 className="h-[12rem] w-8/12 resize-none rounded-lg bg-primary5 p-2 outline-none"
               />
               <div className="flex w-3/12 flex-col gap-4">
