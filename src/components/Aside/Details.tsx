@@ -1,11 +1,10 @@
 import { useAppContext } from "@/context/AppContext";
 import useLoggedInUser from "@/hooks/useLoggedInUser";
+import newMessage from "@/library/newMessage";
 
 const Details = () => {
   const { isAGroupPage, isADirectPage } = useAppContext();
   const { displayName, id, photoUrl } = useLoggedInUser();
-
-  console.log(photoUrl);
 
   if (!isAGroupPage && !isADirectPage)
     return (
