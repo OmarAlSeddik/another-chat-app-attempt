@@ -1,7 +1,10 @@
+import { auth } from "@/firebase";
+import createNewGroup from "@/library/createNewGroup";
 import { faPencil, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import type { SetStateAction } from "react";
 import { useState } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 type PropsType = {
   isOpen: boolean;
@@ -9,7 +12,13 @@ type PropsType = {
 };
 
 const Modal = ({ isOpen, setIsOpen }: PropsType) => {
+  const [user] = useAuthState(auth);
   const [type, setType] = useState("");
+  const [groupName, setGroupName] = useState("");
+  const [groupNote, setGroupNote] = useState("");
+  const [photoUrl, setPhotoUrl] = useState("");
+
+  console.log(user?.uid);
 
   if (!isOpen) return null;
 
@@ -43,6 +52,7 @@ const Modal = ({ isOpen, setIsOpen }: PropsType) => {
               type="text"
               placeholder="Group Name"
               className="flex items-center rounded-lg bg-primary5 p-2 outline-none"
+              onChange={(event) => setGroupName(event.target.value)}
             />
             <div className="flex w-full gap-4">
               <textarea
@@ -51,9 +61,15 @@ const Modal = ({ isOpen, setIsOpen }: PropsType) => {
                 maxLength={120}
                 placeholder="Group Note"
                 className="h-[12rem] w-full resize-none rounded-lg bg-primary5 p-2 outline-none"
+                onChange={(event) => setGroupNote(event.target.value)}
               />
             </div>
-            <button className="rounded bg-green-700 py-1 px-4 transition-all hover:bg-green-500">
+            <button
+              className="rounded bg-green-700 py-1 px-4 transition-all hover:bg-green-500"
+              onClick={() =>
+                createNewGroup(user?.uid, groupName, groupNote, photoUrl)
+              }
+            >
               Create Group
             </button>
           </div>
