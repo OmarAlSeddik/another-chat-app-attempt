@@ -8,11 +8,12 @@ const createNewUser = async (
   photoUrl: string | null | undefined
 ) => {
   if (!uid) return;
-  const userRef = doc(db, "users", uid);
-  const docSnap = await getDoc(userRef);
   const id = uid.slice(0, 10);
+  const userRef = doc(db, "users", id);
+  const docSnap = await getDoc(userRef);
   if (!docSnap.exists()) {
     setDoc(userRef, {
+      uid,
       id,
       email,
       displayName,
@@ -23,7 +24,6 @@ const createNewUser = async (
       groupRooms: [],
       directRooms: [],
       blockedUsers: [],
-      messages: [],
     });
   }
 };

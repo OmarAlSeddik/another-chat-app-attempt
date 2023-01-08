@@ -1,6 +1,8 @@
 import { useAppContext } from "@/context/AppContext";
 import { auth } from "@/firebase";
 import useLoggedInUser from "@/hooks/useLoggedInUser";
+import updateUserName from "@/library/updateUserName";
+import updateUserNote from "@/library/updateUserNote";
 import {
   faMoon,
   faPencil,
@@ -9,11 +11,16 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { signOut } from "firebase/auth";
+import { useRef, useState } from "react";
 
 const SettingsModal = () => {
   const { settingsModalIsOpen, toggleSettingsModal } = useAppContext();
-  const logOut = () => signOut(auth);
-  const { displayName, note, photoUrl } = useLoggedInUser();
+  const { displayName, note, photoUrl, id } = useLoggedInUser();
+  const [userName, setUserName] = useState(displayName);
+  const [userNote, setUserNote] = useState(note);
+
+  const nameRef = useRef<HTMLInputElement>(null);
+  const noteRef = useRef<HTMLTextAreaElement>(null);
 
   if (!settingsModalIsOpen) return null;
 
@@ -58,8 +65,16 @@ const SettingsModal = () => {
                 type="text"
                 placeholder={displayName}
                 className="flex w-8/12 items-center rounded-lg bg-primary5 p-2 outline-none"
+                ref={nameRef}
+                onChange={(event) => setUserName(event.target.value)}
               />
-              <button className="w-3/12 rounded bg-primary4 p-1 transition-all hover:bg-primary6">
+              <button
+                className="w-3/12 rounded bg-primary4 p-1 transition-all hover:bg-primary6"
+                onClick={() => {
+                  if (nameRef.current) nameRef.current.value = "";
+                  updateUserName(id, userName);
+                }}
+              >
                 Change
               </button>
             </div>
@@ -70,9 +85,17 @@ const SettingsModal = () => {
                 maxLength={120}
                 placeholder={note}
                 className="h-[12rem] w-8/12 resize-none rounded-lg bg-primary5 p-2 outline-none"
+                ref={noteRef}
+                onChange={(event) => setUserNote(event.target.value)}
               />
               <div className="flex w-3/12 flex-col gap-4">
-                <button className="rounded bg-primary4 p-1 transition-all hover:bg-primary6">
+                <button
+                  className="rounded bg-primary4 p-1 transition-all hover:bg-primary6"
+                  onClick={() => {
+                    if (noteRef.current) noteRef.current.value = "";
+                    updateUserNote(id, userNote);
+                  }}
+                >
                   Change
                 </button>
                 <div className="flex h-full w-full flex-col justify-between rounded bg-primary1 p-2">
@@ -87,7 +110,10 @@ const SettingsModal = () => {
             </div>
             <button
               className="rounded bg-red-700 py-1 px-4 transition-all hover:bg-red-500"
-              onClick={logOut}
+              onClick={() => {
+                signOut(auth);
+                toggleSettingsModal && toggleSettingsModal();
+              }}
             >
               Log Out
             </button>

@@ -5,7 +5,11 @@ import { useDocumentData } from "react-firebase-hooks/firestore";
 
 const useLoggedInUser = () => {
   const [authUser, loadingLoggedInUser] = useAuthState(auth);
-  const loggedInUserRef = doc(db, "users", authUser?.uid || "placeholder");
+  const loggedInUserRef = doc(
+    db,
+    "users",
+    authUser?.uid.slice(0, 10) || "placeholder"
+  );
 
   const [userData, loadingData] = useDocumentData(loggedInUserRef);
 
